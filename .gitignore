@@ -2,8 +2,6 @@ node_modules
 out
 dist
 .env
-server_app/static/*
-nginx.conf
 .vscode
 
 # OS junk

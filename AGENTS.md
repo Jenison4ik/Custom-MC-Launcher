@@ -1,11 +1,10 @@
-# Jenison Launcher (`launcher_app`)
+# Jenison Launcher
 
 Electron-лаунчер Minecraft (Jenison). Работает в трёх процессах + shared-пакет для IPC.
 
 ## Быстрый старт
 
 ```bash
-cd launcher_app
 npm install
 npm run dev          # tsc watch + vite + electron (ждёт порт 5173 и dist)
 
@@ -98,7 +97,7 @@ Main (Node)       ←  ipcMain.handle / webContents.send
 - Конфиг пользователя: `app.getPath("userData")/config.json`
 - Игра: `userData/.minecraft` (`mcPath`)
 - Java: `userData/java/java{N}`
-- Дефолтный `config.json` в корне `launcher_app` копируется в `dist/main/` при build
+- Дефолтный `config.json` в корне репозитория копируется в `dist/main/` при build
 - Preload в окне: `dist/preload/index.js` (относительно `dist/main/window` → `../../preload`)
 
 ## Стек
@@ -121,6 +120,6 @@ Electron 31, React 18, Vite 5, TypeScript, CSS (`base.css` + `theme.css`), `@xmc
 1. Сохраняй разделение main / preload / renderer / shared.
 2. Не включай `nodeIntegration`; не expose сырой `ipcRenderer` в renderer.
 3. Не дублируй типы API в `App.tsx` — только `@jenison/shared`.
-4. После изменений shared/main/preload проверяй `npm run build` из `launcher_app`.
+4. После изменений shared/main/preload проверяй `npm run build` из корня репозитория.
 5. Бизнес-логику Minecraft не смешивай с UI; UI ходит только через `window.launcherAPI`.
-6. Этот `AGENTS.md` описывает только `launcher_app` (не `server_app`).
+6. Сервер раздачи живёт в [Custom-MC-Launcher-Server](https://github.com/Jenison4ik/Custom-MC-Launcher-Server). Этот файл описывает только лаунчер.

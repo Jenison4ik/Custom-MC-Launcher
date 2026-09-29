@@ -2,7 +2,7 @@
 
 # Custom MC Launcher
 
-![Stars](https://img.shields.io/github/stars/Jenison4ik/Custom_minecraft_launcher)
+![Stars](https://img.shields.io/github/stars/Jenison4ik/Custom-MC-Launcher-CML-)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Свой лаунчер для Minecraft проектов и серверов с модами. Игрок вводит ник и нажимает «Запустить» лаунчер полностью берёт управление на себя: ставит игру, нужную Java, модлоадер и всю сборку. Игрокам теперь больше не надо ничего устанавливать руками
@@ -47,20 +47,19 @@
 Нужен [Node.js](https://nodejs.org/) 20+.
 
 ```bash
-git clone https://github.com/Jenison4ik/Custom_minecraft_launcher
-cd launcher_app
+git clone https://github.com/Jenison4ik/Custom-MC-Launcher-CML-
 npm install
 npm run dev    # окно лаунчера
-npm run pack   # установщик в launcher_app/out
+npm run pack   # установщик в out/
 ```
 
-Сервер раздачи — каталог `server_app`. В `.env` задайте `DOMAIN`. Первый запуск и сертификат описаны в [server_app/nginx/SSL_SETUP.md](./server_app/nginx/SSL_SETUP.md). API — в [server_app/API.md](./server_app/API.md).
+Сервер раздачи и админка — отдельный репозиторий [Custom-MC-Launcher-Server](https://github.com/Jenison4ik/Custom-MC-Launcher-Server).
 
-| Что менять                | Где                                                           |
-| ------------------------- | ------------------------------------------------------------- |
-| Адрес API                 | `launcher_app/packages/main/src/config/launcherProperties.ts` |
-| Имя и обновления лаунчера | `launcher_app/package.json`, секция `build`                   |
-| Тема окна                 | `launcher_app/packages/renderer/src/styles/theme.css`         |
+| Что менять                | Где                                                    |
+| ------------------------- | ------------------------------------------------------ |
+| Адрес API                 | `packages/main/src/config/launcherProperties.ts`       |
+| Имя и обновления лаунчера | `package.json`, секция `build`                         |
+| Тема окна                 | `packages/renderer/src/styles/theme.css`               |
 
 Стек: Electron, React, Vite, TypeScript. Установка Minecraft — `@xmcl`. Обновления лаунчера — `electron-updater`.
 
